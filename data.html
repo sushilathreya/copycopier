@@ -1,57 +1,141 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Copied Copy</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background-color: #f2f2f2; }
-    tr:nth-child(even) { background-color: #f9f9f9; }
-    #clearData { padding: 10px 20px; background-color: #f44336; color: white; border: none; cursor: pointer; }
-    #clearData:hover { background-color: #d32f2f; }
-    .url-link { color: blue; text-decoration: underline; cursor: pointer; }
-    .url-link:hover { text-decoration: none; }
-    .truncate { 
-      max-width: 200px; 
-      white-space: nowrap; 
-      overflow: hidden; 
-      text-overflow: ellipsis; 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
       cursor: pointer;
     }
-    .expanded { 
-      white-space: normal; 
-      max-width: none;
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
-    .titleContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+
+    #clearData,
+    #searchButton {
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #clearData:hover,
+    #searchButton:hover {
+      background-color: #d32f2f;
+    }
+
+    .url-link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .url-link:hover {
+      text-decoration: none;
+    }
+
+    .truncate {
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    .expanded {
+      white-space: normal;
+      max-width: none;
+      overflow: visible;
+    }
+
+    .delete-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .delete-button:hover {
+      background-color: #d32f2f;
+    }
+
+    #searchInput {
+      padding: 10px;
+      width: 300px;
+      margin-right: 10px;
+    }
+
+    #controls {
+      margin-bottom: 20px;
+    }
+
+    .selected {
+      background-color: #e0e0e0 !important;
+    }
+
+    #deleteSelected {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #deleteSelected:hover {
+      background-color: #d32f2f;
     }
   </style>
 </head>
+
 <body>
-    <div class="titleContainer">
-        <h1>Copied Copy</h1>
-        <button id="clearData">Clear All Data</button>
-    </div>
-  
+  <h1>Copied Copy</h1>
+  <div id="controls">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button id="searchButton">Search</button>
+    <button id="clearData">Clear All Data</button>
+  </div>
   <table id="dataTable">
     <thead>
       <tr>
+        <th></th> <!-- New column for checkboxes -->
         <th>URL</th>
+        <th>Meta Title</th>
+        <th>Meta Description</th>
         <th>Header</th>
         <th>Subheader</th>
         <th>Button 1</th>
         <th>Button 2</th>
         <th>Button 3</th>
-        <th>Meta Title</th>
-        <th>Meta Description</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody id="dataBody"></tbody>
   </table>
   <script src="data.js"></script>
 </body>
+
 </html>

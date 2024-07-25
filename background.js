@@ -1,4 +1,5 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message) {  // Only process if message is not null
     chrome.storage.local.get('visitedSites', (result) => {
       let visitedSites = result.visitedSites || {};
       
@@ -12,4 +13,5 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
       });
     });
-  });
+  }
+});
