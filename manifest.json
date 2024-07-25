@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Copy Copier",
+    "version": "1.0",
+    "description": "Collects URL, header, subheader, and button text from visited websites",
+    "permissions": ["activeTab", "storage"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["data.html"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
